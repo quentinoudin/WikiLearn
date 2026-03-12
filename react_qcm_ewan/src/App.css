@@ -1,0 +1,157 @@
+:root {
+  --dark-blue: #0a2351; /* Bleu nuit de la DA */
+  --gold: #c5a059; /* Doré de la DA */
+  --white: #ffffff;
+  --bg-color: #ffffff;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- HEADER / NAVBAR --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; 
+  background: var(--white);
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 60px; 
+  box-sizing: border-box;
+  border-bottom: 1px solid #eeeeee; 
+  z-index: 1000; 
+}
+
+/* --- SECTION GAUCHE : LOGO --- */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.logo-icon-box {
+  background-color: var(--dark-blue);
+  width: 52px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-svg {
+  width: 34px;
+  height: 26px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.8;
+}
+
+.logo-text {
+  font-family: "Playfair Display", serif; 
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.logo-text span {
+  color: var(--gold);
+}
+
+/* --- SECTION CENTRALE : MENU --- */
+.nav-menu {
+  display: flex;
+  gap: 40px; 
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333; 
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease; 
+}
+
+/* Survol des liens centraux */
+.nav-link:hover {
+  color: var(--gold); /* Devient doré au survol */
+}
+
+/* --- SECTION DROITE : CLASSEMENT & PROFIL --- */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px; 
+}
+
+.classement-link {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+  text-decoration: none;
+  color: var(--dark-blue); 
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Survol de tout le bloc Classement (icône + texte) */
+.classement-link:hover {
+  color: var(--gold);
+}
+
+
+.trophy-svg {
+  width: 30px; 
+  height: 30px;
+  fill: var(--gold); 
+  transition: all 0.3s ease; 
+}
+
+
+.classement-link:hover .trophy-svg {
+  fill: var(--gold); 
+}
+
+/* Bouton Profil */
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.8px solid var(--dark-blue);
+  border-radius: 12px;
+  padding: 8px 18px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+.user-icon {
+  font-size: 1.2rem;
+  color: var(--dark-blue);
+  transition: color 0.3s ease;
+}
+
+.profile-text {
+  color: var(--gold); 
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+
+.profile-btn:hover {
+  border-color: var(--gold); 
+}
+
+
+.profile-btn:hover .user-icon {
+  color: var(--gold);
+}
