@@ -1,71 +1,91 @@
 import React, { useState } from 'react';
 import questionsData from "./questions.json";
+import './style.css';
 
 function QuizTexteATrous() {
   const [index, setIndex] = useState(0);
   const [userInput, setUserInput] = useState("");
+  const [feedback, setFeedback] = useState(null);
 
-  // Si on a fini toutes les questions
   if (index >= questionsData.length) {
-    return <h2 style={{ textAlign: 'center', color: 'green' }}>Bravo, tu as fini le quiz ! 🏆</h2>;
+    return (
+      <div className="quiz-card">
+        <h2 className="quiz-title">Félicitations ! 🎉</h2>
+        <p className="quiz-question">Tu as terminé le niveau avec succès.</p>
+      </div>
+    );
   }
 
   const currentQuestion = questionsData[index];
-  // On coupe la phrase exactement là où il y a les 4 tirets du bas
   const parties = currentQuestion.texte.split("____");
 
   const verifierReponse = () => {
     if (userInput.toLowerCase().trim() === currentQuestion.reponse.toLowerCase()) {
-      alert("Bonne réponse !");
-      setIndex(index + 1); // On passe à la suite
-      setUserInput("");    // On vide le champ
+      setFeedback("success"); 
     } else {
-      alert("Mauvaise réponse, essaie encore !");
+      setFeedback("error");   
     }
   };
 
-  return (
-    <div style={{ padding: '30px', border: '1px solid #ccc', borderRadius: '8px', textAlign: 'center', backgroundColor: '#f9f9f9' }}>
-      <h3>Question {index + 1} / {questionsData.length}</h3>
-      
-      <p style={{ fontSize: '18px', lineHeight: '2', marginTop: '20px' }}>
-        {parties[0]}
-        <input 
-          type="text" 
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          placeholder="..."
-          style={{ 
-            borderBottom: '2px solid #007BFF', 
-            borderTop: 'none', 
-            borderLeft: 'none', 
-            borderRight: 'none', 
-            outline: 'none', 
-            width: '120px', 
-            textAlign: 'center',
-            fontSize: '18px',
-            margin: '0 10px',
-            backgroundColor: 'transparent'
-          }}
-        />
-        {parties[1]}
-      </p>
+  const questionSuivante = () => {
+    setIndex(index + 1);
+    setUserInput("");
+    setFeedback(null); 
+  };
 
-      <button 
-        onClick={verifierReponse}
-        style={{
-          marginTop: '30px',
-          padding: '10px 20px',
-          backgroundColor: '#007BFF',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          fontSize: '16px'
-        }}
-      >
-        Valider la réponse
-      </button>
+  return (
+    <div className="quiz-card">
+      <div style={{ position: 'absolute', top: '20px', left: '30px', fontWeight: 'bold', color: 'var(--navy)' }}>
+        60 xp
+      </div>
+
+      <div style={{ color: 'var(--gold)', marginBottom: '10px', fontWeight: 'bold' }}>
+        Question {index + 1} / {questionsData.length} 🔥
+      </div>
+
+      {feedback === null && (
+        <>
+          <h2 className="quiz-title">QUIZZ</h2>
+          <p className="quiz-question">
+            {parties[0]}
+            <input 
+              type="text" 
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              className="input-trou"
+            />
+            {parties[1]}
+          </p>
+          <button onClick={verifierReponse} className="btn-valider">
+            Valider la réponse
+          </button>
+        </>
+      )}
+
+      {feedback === "success" && (
+        <div style={{ padding: '20px 0' }}>
+          <h2 style={{ color: 'green', fontSize: '30px' }}>Bravo ! 🎉</h2>
+          <p className="quiz-question">C'est la bonne réponse.</p>
+          <button onClick={questionSuivante} className="btn-valider">
+            Question suivante
+          </button>
+        </div>
+      )}
+
+      {feedback === "error" && (
+        <div style={{ padding: '20px 0' }}>
+          <h2 style={{ color: '#d9534f', fontSize: '30px' }}>Dommage ! 😕</h2>
+          <p className="quiz-question" style={{ fontSize: '20px' }}>
+            La bonne réponse était : <br/>
+            <strong style={{ color: 'var(--navy)', fontSize: '28px' }}>
+              {currentQuestion.reponse}
+            </strong>
+          </p>
+          <button onClick={questionSuivante} className="btn-valider">
+            Continuer
+          </button>
+        </div>
+      )}
     </div>
   );
 }
