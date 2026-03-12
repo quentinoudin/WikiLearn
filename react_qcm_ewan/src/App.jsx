@@ -3,8 +3,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
+      {/* Navbar que l'on a déjà faite */}
       <header className="header">
-        {/* SECTION GAUCHE : LOGO */}
         <a href="/" className="logo-link">
           <div className="logo-icon-box">
             <svg className="book-svg" viewBox="0 0 40 30">
@@ -19,7 +19,6 @@ function App() {
           </div>
         </a>
 
-        {/* SECTION CENTRALE : MENU */}
         <nav className="nav-menu">
           <a href="#" className="nav-link">
             Parcours
@@ -32,15 +31,14 @@ function App() {
           </a>
         </nav>
 
-        {/* SECTION DROITE : CLASSEMENT & PROFIL */}
         <div className="nav-right">
           <a href="#classement" className="classement-link">
             <svg className="trophy-svg" viewBox="0 0 32 32">
-              <path d="M28 6H24V4a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h4.1a6 6 0 0 0 5.9 5v4h-2a2 2 0 0 0-2 2v2h12v-2a2 2 0 0 0-2-2h-2v-4a6 6 0 0 0 5.9-5H28c1.1 0 2-.9 2-2V8a2 2 0 0 0-2-2zM4 10V8h4v2H4zm24 0h-4V8h4v2z" />{" "}
+              <path d="M28 6H24V4a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h4.1a6 6 0 0 0 5.9 5v4h-2a2 2 0 0 0-2 2v2h12v-2a2 2 0 0 0-2-2h-2v-4a6 6 0 0 0 5.9-5H28c1.1 0 2-.9 2-2V8a2 2 0 0 0-2-2zM4 10V8h4v2H4zm24 0h-4V8h4v2z" />
               <path
-                d="M16 5l1.1 3.2h3.4l-2.7 2.1 1.1 3.2-2.7-2.1-2.7 2.1 1.1-3.2-2.7-2.1h3.4z"
+                d="M16 9l1.1 3.2h3.4l-2.7 2.1 1.1 3.2-2.7-2.1-2.7 2.1 1.1-3.2-2.7-2.1h3.4z"
                 fill="#FFFFFF"
-              />{" "}
+              />
             </svg>
             <span className="classement-text">Classement</span>
           </a>
@@ -51,7 +49,17 @@ function App() {
         </div>
       </header>
 
-      <main className="content">
+      {/* --- NOUVEAU : ZONE DE CONTENU --- */}
+      <main className="main-content">
+        {/* Barre d'XP */}
+        <div className="xp-bar-container">
+          <div className="xp-bar-gradient">
+            <span className="xp-label">0xp</span>
+            <span className="xp-label">100xp</span>
+          </div>
+        </div>
+
+        {/* Le bloc central du Quiz sera ajouté ici au prochain commit */}
       </main>
     </div>
   );
