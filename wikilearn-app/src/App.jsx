@@ -272,3 +272,37 @@ function App() {
           </p>
         </div>
 
+        <div style={styles.heroDroite}>
+          <p style={styles.heroDroiteTitre}>
+            Un quiz a la fois, un monde de savoir
+          </p>
+
+          <div style={styles.carteImage}>
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"
+              alt="personne qui apprend"
+              style={styles.imageHero}
+            />
+            <div style={styles.badgeStreak}>
+              <div>7 jours</div>
+              <div style={styles.streakXP}>+ 500 XP</div>
+            </div>
+          </div>
+
+          <div style={styles.boutonsZone}>
+            <button style={styles.btnPrimaire}>
+              Commencer mon premier quiz
+            </button>
+            <button style={styles.btnSecondaire}>
+              Voir les parcours
+            </button>
+          </div>
+        </div>
+
+      </section>
+    </div>
+   );
+}
+
+export default App;
+
