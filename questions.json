@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "texte": "Le premier parc Legoland a été ouvert en _____ au Danemark, marquant l’extension de la marque dans les parcs d’attractions.",
+    "reponse": "1962"
+  },
+  {
+    "id": 2,
+    "texte": "La première figurine Lego, telle qu’on la connaît aujourd’hui, est apparue en _____, soit plusieurs années après la mise au point des briques en plastique.",
+    "reponse": "1958"
+  },
+  {
+        "id": 3,
+        "texte": "Un AFOL Signifie : ___________________________ ",
+        "reponse": "Adult Fan Of Lego"
+    }
+]
+
+
