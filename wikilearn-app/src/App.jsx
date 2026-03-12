@@ -91,3 +91,57 @@ const styles = {
     cursor: "pointer",
     fontFamily: "Georgia, serif",
   },
+  badgeZone: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "48px",
+    marginBottom: "48px",
+  },
+
+  badge: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    padding: "10px 24px",
+    border: "1px solid #c7d2fe",
+    borderRadius: "999px",
+    backgroundColor: "#eef2ff",
+    color: "#3730a3",
+    fontSize: "14px",
+  },
+
+  badgeIcone: {
+    fontSize: "18px",
+  },
+
+  hero: {
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    padding: "0 80px 80px 80px",
+    gap: "60px",
+  },
+
+  heroGauche: {
+    flex: 1,
+    maxWidth: "560px",
+  },
+
+  heroTitre: {
+    fontSize: "58px",
+    fontWeight: "bold",
+    color: "#1e3a6e",
+    lineHeight: "1.1",
+    margin: "0 0 24px 0",
+  },
+
+  heroTitreOr: {
+    color: "#d4a017",
+  },
+
+  heroDesc: {
+    fontSize: "18px",
+    color: "#4b5563",
+    lineHeight: "1.7",
+    margin: 0,
+  },
