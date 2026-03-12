@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "type": "true_false",
+    "category": "Vrai/Faux",
+    "question": "Le nom « Lego » vient de l'expression danoise « leg godt », qui signifie « joue bien ».",
+    "correctAnswer": true
+  },
+  {
+    "id": 2,
+    "type": "true_false",
+    "category": "Vrai/Faux",
+    "question": "L'entreprise The Lego Group a été fondée à l'origine en Suède.",
+    "correctAnswer": false
+  },
+  {
+    "id": 3,
+    "type": "true_false",
+    "category": "Vrai/Faux",
+    "question": "À ses tout débuts, l'entreprise Lego fabriquait principalement des jouets en bois.",
+    "correctAnswer": true
+  },
+  {
+    "id": 4,
+    "type": "true_false",
+    "category": "Vrai/Faux",
+    "question": "Le brevet de la brique Lego moderne, avec son système d'emboîtement par tubes internes, a été déposé en 1998.",
+    "correctAnswer": false
+  },
+  {
+    "id": 5,
+    "type": "multiple_choice",
+    "category": "QCM",
+    "question": "De quel pays est originaire le groupe qui fabrique les Lego ?",
+    "options": [
+      "Suède",
+      "Danemark",
+      "Allemagne",
+      "Norvège"
+    ],
+    "correctAnswer": "Danemark"
+  },
+  {
+    "id": 6,
+    "type": "multiple_choice",
+    "category": "QCM",
+    "question": "En quelle année la marque LEGO a t-elle été créée ?",
+    "options": [
+      "1932",
+      "1949",
+      "1969",
+      "1978"
+    ],
+    "correctAnswer": "1949"
+  },
+  {
+    "id": 7,
+    "type": "multiple_choice",
+    "category": "QCM",
+    "question": "Lequel de ces univers n’est pas une gamme ou une licence associée à Lego ?",
+    "options": [
+      "Lego City",
+      "Lego Star Wars",
+      "Lego Fortnite",
+      "Lego Pirates des Caraïbes"
+    ],
+    "correctAnswer": "Lego Pirates des Caraïbes"
+  },
+  {
+    "id": 8,
+    "type": "fill_in_the_blank",
+    "category": "Texte à trous",
+    "question": "Le premier parc Legoland a été ouvert en {blank} au Danemark, marquant l’extension de la marque dans les parcs d’attractions.",
+    "correctAnswer": "1968"
+  },
+  {
+    "id": 9,
+    "type": "fill_in_the_blank",
+    "category": "Texte à trous",
+    "question": "La première figurine Lego, telle qu’on la connaît aujourd’hui, est apparue en {blank}, soit plusieurs années après la mise au point des briques en plastique.",
+    "correctAnswer": "1978"
+  },
+  {
+    "id": 10,
+    "type": "fill_in_the_blank",
+    "category": "Texte à trous",
+    "question": "Un \"AFOL\" Signifie : {blank}",
+    "correctAnswer": "Adult Fan Of Lego"
+  }
+]

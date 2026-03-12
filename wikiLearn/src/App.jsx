@@ -1,83 +1,103 @@
 import { useState } from 'react'
 
-// 1. PascalCase pour le nom du composant
 function App() {
   
-  // 2. camelCase pour les variables
+  // 1. Notre petite liste de questions
   const questionsLego = [
-    { 
-      texte: "Le nom « Lego » vient de l'expression danoise « leg godt », qui signifie « joue bien ».", 
-      estVrai: true // 3. Les booléens décrivent un état ("estVrai" au lieu de "cEstVrai")
-    },
-    { 
-      texte: "L'entreprise The Lego Group a été fondée à l'origine en Suède.", 
-      estVrai: false 
-    },
-    { 
-      texte: "À ses tout débuts, l'entreprise Lego fabriquait principalement des jouets en bois.", 
-      estVrai: true 
-    },
-    { 
-      texte: "Le brevet de la brique Lego moderne, avec son système d'emboîtement par tubes internes, a été déposé en 1998.", 
-      estVrai: false 
-    }
+    { texte: "Le nom « Lego » vient de l'expression danoise « leg godt ».", estVrai: true },
+    { texte: "L'entreprise The Lego Group a été fondée en Suède.", estVrai: false },
+    { texte: "À ses débuts, Lego fabriquait des jouets en bois.", estVrai: true },
+    { texte: "Le brevet de la brique moderne a été déposé en 1998.", estVrai: false }
   ]
 
-  // Des noms de variables (states) clairs, courts et standards
+  // 2. Nos mémoires (States)
   const [indexQuestion, setIndexQuestion] = useState(0)
   const [score, setScore] = useState(0)
-  const [jeuTermine, setJeuTermine] = useState(false) 
 
   const questionActuelle = questionsLego[indexQuestion]
 
-  // 4. "handle" est la convention universelle pour dire "Cette fonction gère une action"
+  // 3. La fonction qui gère le clic sur Vrai ou Faux
   function handleReponse(reponseUtilisateur) {
     
-    // La logique reste exactement la même, seuls les noms ont changé !
+    // On garde l'ancien score en mémoire pour calculer le total à la fin
+    let nouveauScore = score
+
     if (reponseUtilisateur === questionActuelle.estVrai) {
-      setScore(score + 1)
+      nouveauScore = score + 1
+      setScore(nouveauScore)
     }
 
     const indexSuivant = indexQuestion + 1
     
+    // Si on a encore des questions, on passe à la suivante
     if (indexSuivant < questionsLego.length) {
       setIndexQuestion(indexSuivant)
     } else {
-      setJeuTermine(true) 
+      // S'il n'y a plus de questions, on affiche une alerte et on remet à zéro !
+      alert("Fini ! Ton score est de " + nouveauScore + " / " + questionsLego.length)
+      setIndexQuestion(0)
+      setScore(0)
     }
   }
 
+  // 4. Juste la boîte du Quizz (Le Vrai / Faux)
   return (
-    <div>
-      <h1>Le Méga Quizz LEGO</h1>
+    <div style={{ 
+      border: '2px solid #ccc', 
+      borderRadius: '12px', 
+      padding: '30px', 
+      maxWidth: '400px', 
+      margin: '50px auto', // Centre la boîte au milieu de l'écran
+      textAlign: 'center',
+      fontFamily: 'sans-serif'
+    }}>
+      
+      <p style={{ color: 'gray', margin: '0 0 10px 0' }}>
+        Question {indexQuestion + 1} / {questionsLego.length}
+      </p>
+      
+      <h3 style={{ fontSize: '20px', minHeight: '60px', marginBottom: '30px' }}>
+        {questionActuelle.texte}
+      </h3>
 
-      {jeuTermine ? (
-        <div>
-          <h2>Fini ! 🎉</h2>
-          <p>Ton score final est de {score} / {questionsLego.length} !</p>
-          <button onClick={() => window.location.reload()}>
-            Rejouer au Quizz
-          </button>
-        </div>
-      ) : (
-        <div>
-          <p>Question {indexQuestion + 1} sur {questionsLego.length}</p>
-          <h3>{questionActuelle.texte}</h3>
+      <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+        
+        {/* BOUTON VRAI */}
+        <button 
+          onClick={() => handleReponse(true)}
+          style={{ 
+            padding: '12px 30px', 
+            backgroundColor: '#10B981', 
+            color: 'white', 
+            border: 'none', 
+            borderRadius: '8px', 
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold'
+          }}
+        >
+          VRAI 👍
+        </button>
 
-          <div>
-            {/* On appelle notre belle fonction handleReponse ici */}
-            <button onClick={() => handleReponse(true)}>
-              VRAI 👍
-            </button>
-            
-            <button onClick={() => handleReponse(false)}>
-              FAUX 👎
-            </button>
-          </div>
-          
-          <p>Mon score : {score}</p>
-        </div>
-      )}
+        {/* BOUTON FAUX */}
+        <button 
+          onClick={() => handleReponse(false)}
+          style={{ 
+            padding: '12px 30px', 
+            backgroundColor: '#EF4444', 
+            color: 'white', 
+            border: 'none', 
+            borderRadius: '8px', 
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold'
+          }}
+        >
+          FAUX 👎
+        </button>
+
+      </div>
+      
     </div>
   )
 }
