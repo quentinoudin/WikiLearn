@@ -1,9 +1,56 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+
+  const quizData = [
+    {
+      question:
+        "« En quelle année la brique LEGO moderne (telle qu'on la connaît) a-t-elle été brevetée ? »",
+      options: ["1958", "1945", "1962", "1932"],
+      correctAnswer: "1958",
+    },
+    {
+      question:
+        "« Quel est le nom de la gamme LEGO destinée aux plus petits avec des briques deux fois plus grandes ? »",
+      options: ["Duplo", "Technic", "Ninjago", "City"],
+      correctAnswer: "Duplo",
+    },
+    {
+      question: "« De quel pays est originaire la marque LEGO ? »",
+      options: ["Danemark", "Suède", "Norvège", "Allemagne"],
+      correctAnswer: "Danemark",
+    },
+  ];
+
+  const handleAnswer = (selectedOption) => {
+    if (selectedOption === quizData[currentQuestion].correctAnswer) {
+      alert("Correct ! 🧱");
+      setScore(score + 20);
+    } else {
+      alert(
+        `Faux ! La réponse était ${quizData[currentQuestion].correctAnswer}`
+      );
+    }
+
+    if (currentQuestion < quizData.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      alert(
+        `Quizz Lego terminé ! Score final : ${
+          score +
+          (selectedOption === quizData[currentQuestion].correctAnswer ? 20 : 0)
+        } XP`
+      );
+      setCurrentQuestion(0);
+      setScore(0);
+    }
+  };
+
   return (
     <div className="App">
-      {/* Navbar que l'on a déjà faite */}
       <header className="header">
         <a href="/" className="logo-link">
           <div className="logo-icon-box">
@@ -34,14 +81,14 @@ function App() {
         <div className="nav-right">
           <a href="#classement" className="classement-link">
             <svg className="trophy-svg" viewBox="0 0 32 32">
-              <path d="M28 6H24V4a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h4.1a6 6 0 0 0 5.9 5v4h-2a2 2 0 0 0-2 2v2h12v-2a2 2 0 0 0-2-2h-2v-4a6 6 0 0 0 5.9-5H28c1.1 0 2-.9 2-2V8a2 2 0 0 0-2-2zM4 10V8h4v2H4zm24 0h-4V8h4v2z" />
               <path
-                d="M16 9l1.1 3.2h3.4l-2.7 2.1 1.1 3.2-2.7-2.1-2.7 2.1 1.1-3.2-2.7-2.1h3.4z"
-                fill="#FFFFFF"
+                d="M28 6H24V4a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h4.1a6 6 0 0 0 5.9 5v4h-2a2 2 0 0 0-2 2v2h12v-2a2 2 0 0 0-2-2h-2v-4a6 6 0 0 0 5.9-5H28c1.1 0 2-.9 2-2V8a2 2 0 0 0-2-2zM4 10V8h4v2H4zm24 0h-4V8h4v2z"
+                fill="currentColor"
               />
             </svg>
             <span className="classement-text">Classement</span>
           </a>
+
           <button className="profile-btn">
             <span className="user-icon">👤</span>
             <span className="profile-text">Profil</span>
@@ -49,17 +96,86 @@ function App() {
         </div>
       </header>
 
-      {/* --- NOUVEAU : ZONE DE CONTENU --- */}
       <main className="main-content">
-        {/* Barre d'XP */}
         <div className="xp-bar-container">
           <div className="xp-bar-gradient">
             <span className="xp-label">0xp</span>
-            <span className="xp-label">100xp</span>
+            <span className="xp-label">{score} / 100xp</span>
           </div>
         </div>
 
-        {/* Le bloc central du Quiz sera ajouté ici au prochain commit */}
+        <div className="quiz-card">
+          <div className="quiz-header">
+            <span className="quiz-xp-display">{score} xp</span>
+            <div className="stepper-container">
+              <div className="stepper-arc">
+                {[...Array(10)].map((_, i) => {
+                  const totalSteps = 10;
+                  const startAngle = -140;
+                  const endAngle = -40;
+                  const angle =
+                    startAngle +
+                    (i * (endAngle - startAngle)) / (totalSteps - 1);
+                  const radians = (angle * Math.PI) / 180;
+                  const radius = 130;
+                  const x = radius * Math.cos(radians);
+                  const y = radius * Math.sin(radians) + 180;
+                  const rotation = angle + 90;
+                  const isCurrent = i === currentQuestion + 4;
+
+                  return (
+                    <div
+                      key={i}
+                      className={`step ${isCurrent ? "active" : ""}`}
+                      style={{
+                        transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
+                      }}
+                    >
+                      {isCurrent ? (
+                        <>
+                          <svg
+                            className="fire-svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                          >
+                            <path d="M12 2c0 0-5 5-5 9a5 5 0 0 0 10 0c0-4-5-9-5-9z" />
+                            <path
+                              d="M12 7c0 0-2 2-2 4a2 2 0 0 0 4 0c0-2-2-4-2-4z"
+                              opacity="0.5"
+                            />
+                          </svg>
+                          <span className="step-num">{i + 1}</span>
+                        </>
+                      ) : (
+                        <span className="step-num">{i + 1}</span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="quiz-content">
+            <h2 className="quiz-category">QUIZZ LEGO</h2>
+            <h1 className="quiz-question">
+              {quizData[currentQuestion].question}
+            </h1>
+            <div className="options-grid">
+              {quizData[currentQuestion].options.map((opt, index) => (
+                <button
+                  key={index}
+                  className="option-btn"
+                  onClick={() => handleAnswer(opt)}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

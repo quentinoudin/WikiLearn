@@ -107,15 +107,17 @@ body {
   color: var(--gold);
 }
 
+/* --- ICONE TROPHÉE DORÉE PAR DÉFAUT --- */
 .trophy-svg {
   width: 30px;
   height: 30px;
-  fill: var(--gold);
-  transition: all 0.3s ease;
+  color: var(--gold);
+  transition: transform 0.3s ease;
 }
 
 .classement-link:hover .trophy-svg {
-  fill: var(--gold);
+  color: var(--gold);
+  transform: scale(1.1); 
 }
 
 /* Bouton Profil */
@@ -159,27 +161,24 @@ body {
   flex-direction: column;
 }
 
-/* Zone principale sous la Navbar */
 .main-content {
-  margin-top: 140px; /* Laisse de la place sous la navbar fixe */
+  margin-top: 140px; 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre tout horizontalement */
+  align-items: center;
   width: 100%;
 }
 
 /* Container de la barre d'XP */
 .xp-bar-container {
   width: 100%;
-  max-width: 700px; /* Ajuste la largeur selon ton envie */
+  max-width: 700px; 
   padding: 0 20px;
-  margin-bottom: 50px; /* Espace avant le futur bloc central */
+  margin-bottom: 50px; 
 }
 
-/* La barre avec le dégradé exact */
 .xp-bar-gradient {
   height: 44px;
-  /* Dégradé Bleu Nuit -> Doré */
   background: linear-gradient(90deg, #0a2351 0%, #c5a059 100%);
   border-radius: 10px;
   display: flex;
@@ -194,4 +193,253 @@ body {
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0.5px;
+}
+
+/* --- STYLES DU BLOC QCM --- */
+.quiz-card {
+  width: 100%;
+  max-width: 700px;
+  background-color: #fdfbf7; 
+  border: 6px solid var(--dark-blue);
+  border-radius: 25px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 0 var(--dark-blue); 
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.quiz-xp-display {
+  font-weight: 800;
+  color: var(--dark-blue);
+  font-size: 18px;
+  margin-right: 40px;
+}
+
+.question-stepper {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.step-dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid var(--dark-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.step-dot.active {
+  background: var(--dark-blue);
+  color: white;
+}
+
+.quiz-category {
+  color: var(--dark-blue);
+  font-size: 14px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.quiz-question {
+  font-family: "Playfair Display", serif;
+  color: var(--dark-blue);
+  font-size: 26px;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 40px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.option-btn {
+  background: white;
+  border: 4px solid var(--dark-blue);
+  border-radius: 15px;
+  padding: 18px;
+  color: var(--dark-blue);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  box-shadow: 0 5px 0 var(--dark-blue);
+}
+
+.option-btn:hover {
+  background: #f0f4f8;
+}
+
+.option-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--dark-blue);
+}
+
+/* --- LE STEPPER DORÉ AVEC LA FLAMME --- */
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+
+.quiz-xp-display {
+  font-weight: 800;
+  color: var(--dark-blue);
+  font-size: 18px;
+  margin-right: 40px;
+}
+
+.stepper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ddd; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.dot.active {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  border-width: 0; 
+}
+
+.dot.completed {
+  background-color: var(--dark-blue);
+  border-color: var(--dark-blue);
+}
+
+.dot-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ddd;
+}
+
+.dot.active .dot-num {
+  color: white;
+}
+
+.fire-icon {
+  font-size: 18px;
+  color: white;
+  animation: flameWiggle 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes flameWiggle {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-2px) scale(1.05);
+  }
+}
+
+.quiz-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding: 0;
+}
+
+.quiz-xp-display {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-weight: 800;
+  color: var(--dark-blue);
+  font-size: 18px;
+}
+
+.stepper-container {
+  width: 100%;
+  height: 0px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  margin-top: 0;
+  transform: translateY(60px);
+
+  margin-bottom: 70px;
+}
+
+.stepper-arc {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateY(-90px);
+}
+
+.step {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.step-num {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.step.active .step-num {
+  z-index: 2;
+  color: var(--gold);
+  transform: rotate(calc(var(--rotation) * -1)) translateY(2px);
+}
+
+.fire-svg {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  color: #000000;
+  top: -15px;
+  z-index: 1;
+  transform: rotate(calc(0deg));
+  animation: flameWiggle 0.6s ease-in-out infinite alternate;
+}
+
+.quiz-category {
+  margin-top: 10px; 
+  color: var(--dark-blue);
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-align: center;
+  font-weight: 800;
 }
