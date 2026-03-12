@@ -244,3 +244,31 @@ function App() {
           <button style={styles.btnProfil}>Profil</button>
         </div>
       </nav>
+
+            <div style={styles.badgeZone}>
+        <div style={styles.badge}>
+          Plateforme de micro-apprentissage gamifiee
+        </div>
+      </div>
+
+      <section style={styles.hero}>
+        <div style={styles.heroGauche}>
+          <h1 style={styles.heroTitre}>
+            Apprenez pas a pas,
+              
+
+            explorez le savoir
+              
+
+            comme sur{" "}
+            <span style={styles.heroTitreOr}>wikipedia</span>
+          </h1>
+
+          <p style={styles.heroDesc}>
+            Une plateforme de micro-lecons interactives pour
+            progresser sur tous les sujets du plus accessible
+            au plus pointu grace a des quiz rapides, un
+            systeme XP et un parcours intelligent.
+          </p>
+        </div>
+
