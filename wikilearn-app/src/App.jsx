@@ -221,3 +221,26 @@ const styles = {
     fontFamily: "Georgia, serif",
   },
 };
+function App() {
+  return (
+    <div style={styles.page}>
+
+      <nav style={styles.navbar}>
+        <div style={styles.logoZone}>
+          <div style={styles.logoIcon}>W</div>
+          <span style={styles.logoTexte}>
+            Wikipedia <span style={styles.logoOr}>Learning</span>
+          </span>
+        </div>
+
+        <ul style={styles.navLinks}>
+          <li><a style={styles.navLink} href="#">Parcours</a></li>
+          <li><a style={styles.navLink} href="#">Lecon</a></li>
+          <li><a style={styles.navLink} href="#">Quizz</a></li>
+        </ul>
+
+        <div style={styles.navDroite}>
+          <button style={styles.btnClassement}>Classement</button>
+          <button style={styles.btnProfil}>Profil</button>
+        </div>
+      </nav>
