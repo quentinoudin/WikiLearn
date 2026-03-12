@@ -84,4 +84,7 @@ return (
   />
 </p>
 
+{/* bouton validation */}
+<button onClick={checkAnswers}>Valider</button> 
+
 
