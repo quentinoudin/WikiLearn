@@ -43,4 +43,45 @@ return (
   qui permet de créer des interfaces utilisateurs.
 </p>
 
+{/* question 2 */}
+<p>
+  Les interfaces sont construites avec des
+  <input
+    type="text"
+    value={answer2}
+    onChange={(e) => setAnswer2(e.target.value)}
+  />
+  réutilisables.
+</p>
+
+{/* question 3 */}
+<p>
+  Pour gérer les données dynamiques, React utilise le
+  <input
+    type="text"
+    value={answer3}
+    onChange={(e) => setAnswer3(e.target.value)}
+  />
+</p>
+
+{/* question 4 */}
+<p>
+  Dans une application React, les données peuvent être transmises grâce aux
+  <input
+    type="text"
+    value={answer4}
+    onChange={(e) => setAnswer4(e.target.value)}
+  />
+</p>
+
+{/* question 5 */}
+<p>
+  Le code est généralement écrit avec une syntaxe appelée
+  <input
+    type="text"
+    value={answer5}
+    onChange={(e) => setAnswer5(e.target.value)}
+  />
+</p>
+
 
