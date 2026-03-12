@@ -87,4 +87,7 @@ return (
 {/* bouton validation */}
 <button onClick={checkAnswers}>Valider</button> 
 
+{/* resultat du score */}
+<p>{result}</p>
+
 
