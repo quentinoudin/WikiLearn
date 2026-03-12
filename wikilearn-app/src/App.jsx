@@ -145,3 +145,79 @@ const styles = {
     lineHeight: "1.7",
     margin: 0,
   },
+  heroDroite: {
+    flex: 1,
+    maxWidth: "520px",
+  },
+
+  heroDroiteTitre: {
+    textAlign: "center",
+    fontSize: "17px",
+    color: "#1e3a6e",
+    fontStyle: "italic",
+    marginBottom: "16px",
+  },
+
+  carteImage: {
+    position: "relative",
+    borderRadius: "16px",
+    overflow: "hidden",
+    marginBottom: "20px",
+  },
+
+  imageHero: {
+    width: "100%",
+    height: "280px",
+    objectFit: "cover",
+    display: "block",
+    borderRadius: "16px",
+  },
+
+  badgeStreak: {
+    position: "absolute",
+    bottom: "16px",
+    left: "16px",
+    backgroundColor: "rgba(0,0,0,0.75)",
+    color: "#fff",
+    padding: "10px 14px",
+    borderRadius: "12px",
+    fontSize: "13px",
+    lineHeight: "1.5",
+    textAlign: "center",
+  },
+
+  streakXP: {
+    color: "#fbbf24",
+    fontWeight: "bold",
+    fontSize: "14px",
+  },
+
+  boutonsZone: {
+    display: "flex",
+    gap: "12px",
+  },
+
+  btnPrimaire: {
+    flex: 1,
+    padding: "14px 20px",
+    backgroundColor: "#1e3a6e",
+    color: "#fff",
+    border: "none",
+    borderRadius: "10px",
+    fontSize: "15px",
+    cursor: "pointer",
+    fontFamily: "Georgia, serif",
+  },
+
+  btnSecondaire: {
+    flex: 1,
+    padding: "14px 20px",
+    backgroundColor: "#fff",
+    color: "#1e3a6e",
+    border: "2px solid #1e3a6e",
+    borderRadius: "10px",
+    fontSize: "15px",
+    cursor: "pointer",
+    fontFamily: "Georgia, serif",
+  },
+};
