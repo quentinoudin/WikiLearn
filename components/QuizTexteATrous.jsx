@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import questionsData from "./questions.json";
-import './style.css';
+import questionsData from "../data/questions_trous.json";
+import '../style.css';
+
 
 function QuizTexteATrous() {
   const [index, setIndex] = useState(0);

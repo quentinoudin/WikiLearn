@@ -1,5 +1,5 @@
 import React from 'react'
-import QuizTexteATrous from './QuizTexteATrous.jsx'
+import QuizTexteATrous from './components/QuizTexteATrous.jsx';
 import './style.css' // Importation du design !
 
 function App() {
