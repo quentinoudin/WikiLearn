@@ -1,5 +1,5 @@
 import React from 'react';
-import './navbar.css'; // On importe le CSS spécifique à la navbar (que tu as déjà créé !)
+import './navbar.css'; 
 
 function Navbar() {
   return (

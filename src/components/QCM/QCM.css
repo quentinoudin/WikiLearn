@@ -1,6 +1,6 @@
 :root {
-  --dark-blue: #0a2351; /* Bleu nuit de la DA */
-  --gold: #c5a059; /* Doré de la DA */
+  --dark-blue: #0a2351;
+  --gold: #c5a059; 
   --white: #ffffff;
   --bg-color: #ffffff;
 }
@@ -29,7 +29,7 @@ body {
   z-index: 1000;
 }
 
-/* --- SECTION GAUCHE : LOGO --- */
+
 .logo-link {
   display: flex;
   align-items: center;
@@ -66,7 +66,7 @@ body {
   color: var(--gold);
 }
 
-/* --- SECTION CENTRALE : MENU --- */
+
 .nav-menu {
   display: flex;
   gap: 40px;
@@ -80,12 +80,12 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Survol des liens centraux */
+
 .nav-link:hover {
-  color: var(--gold); /* Devient doré au survol */
+  color: var(--gold); 
 }
 
-/* --- SECTION DROITE : CLASSEMENT & PROFIL --- */
+
 .nav-right {
   display: flex;
   align-items: center;
@@ -102,12 +102,12 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Survol de tout le bloc Classement (icône + texte) */
+/* Survol du bloc classement */
 .classement-link:hover {
   color: var(--gold);
 }
 
-/* --- ICONE TROPHÉE DORÉE PAR DÉFAUT --- */
+/* --- ICONE TROPHÉE  --- */
 .trophy-svg {
   width: 30px;
   height: 30px;
@@ -169,7 +169,7 @@ body {
   width: 100%;
 }
 
-/* Container de la barre d'XP */
+/* barre d'XP */
 .xp-bar-container {
   width: 100%;
   max-width: 700px; 
@@ -291,7 +291,7 @@ body {
   box-shadow: 0 2px 0 var(--dark-blue);
 }
 
-/* --- LE STEPPER DORÉ AVEC LA FLAMME --- */
+/* --- LE STEPPER AVE FLAMME --- */
 .quiz-header {
   display: flex;
   align-items: center;

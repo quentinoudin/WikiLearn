@@ -1,27 +1,25 @@
-import React from 'react';
-// 1. On importe nos deux composants "Legos"
-import Navbar from './components/navbar/navbar.jsx';
+import React, { useState } from 'react';
+import VraiFaux from './components/vrai-faux/vrai-faux.jsx';
+import QCM from './components/QCM/QCM.jsx';
 import QuizTexteATrous from './components/texte-a-trous/texte-a-trous.jsx';
 
-import './style.css'; // Importation du design global
+import './style.css';
 
 function App() {
+  const [page, setPage] = useState('vrai-faux');
+
   return (
-    <div>
-      {/* 2. On affiche notre barre de navigation */}
-      <Navbar />
-
-      {/* Barre d'expérience (XP) */}
-      <div className="progress-bar-container">
-        <span>0xp</span>
-        <span>100xp</span>
-      </div>
-
-      {/* Le contenu principal (La carte du quiz) */}
-      <main>
+    <main>
+      {page === 'vrai-faux' && (
+        <VraiFaux onFinish={() => setPage('qcm')} />
+      )}
+      {page === 'qcm' && (
+        <QCM onFinish={() => setPage('texte-a-trous')} />
+      )}
+      {page === 'texte-a-trous' && (
         <QuizTexteATrous />
-      </main>
-    </div>
+      )}
+    </main>
   );
 }
 

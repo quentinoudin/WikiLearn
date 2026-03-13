@@ -13,7 +13,7 @@ body {
   color: var(--navy);
 }
 
-/* --- LA BARRE DE NAVIGATION (Header) --- */
+/* --- Header --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -34,7 +34,7 @@ body {
   font-weight: bold;
 }
 
-/* --- LA BARRE D'XP --- */
+/* --- BARE D'XP --- */
 .progress-bar-container {
   width: 60%;
   margin: 40px auto;
@@ -49,7 +49,7 @@ body {
   font-weight: bold;
 }
 
-/* --- LA CARTE DU QUIZ --- */
+/* --- LA CARTE QUIZ --- */
 .quiz-card {
   background-color: var(--cream);
   border: 4px solid var(--navy);
@@ -64,7 +64,7 @@ body {
 
 /* Typographie de la carte */
 .quiz-title {
-  font-family: 'Georgia', serif; /* Police à empattement comme sur ton image */
+  font-family: 'Georgia', serif;
   font-size: 20px;
   letter-spacing: 2px;
   color: var(--navy);
@@ -79,7 +79,7 @@ body {
   margin-bottom: 40px;
 }
 
-/* --- LE TEXTE À TROUS --- */
+/* --- LE TEXTE a TROU --- */
 .input-trou {
   border: none;
   border-bottom: 2px solid var(--gold);

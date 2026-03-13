@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./QCM.css";
 
-function App() {
+function QCM({ onFinish }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [feedbackType, setFeedbackType] = useState("info");
 
   const quizData = [
     {
@@ -26,26 +28,36 @@ function App() {
   ];
 
   const handleAnswer = (selectedOption) => {
-    if (selectedOption === quizData[currentQuestion].correctAnswer) {
-      alert("Correct ! 🧱");
-      setScore(score + 20);
+    const isCorrect =
+      selectedOption === quizData[currentQuestion].correctAnswer;
+    const nextScore = score + (isCorrect ? 20 : 0);
+
+    setScore(nextScore);
+
+    if (isCorrect) {
+      setFeedbackMessage("Correct ! 🧱 +20 XP");
+      setFeedbackType("success");
     } else {
-      alert(
+      setFeedbackMessage(
         `Faux ! La réponse était ${quizData[currentQuestion].correctAnswer}`
       );
+      setFeedbackType("error");
     }
 
     if (currentQuestion < quizData.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      alert(
-        `Quizz Lego terminé ! Score final : ${
-          score +
-          (selectedOption === quizData[currentQuestion].correctAnswer ? 20 : 0)
-        } XP`
-      );
-      setCurrentQuestion(0);
-      setScore(0);
+      setFeedbackMessage(`Quizz Lego terminé ! Score final : ${nextScore} XP`);
+      setFeedbackType("success");
+
+      if (onFinish) {
+        setTimeout(() => {
+          setCurrentQuestion(0);
+          setScore(0);
+          setFeedbackMessage("");
+          onFinish();
+        }, 1800);
+      }
     }
   };
 
@@ -163,6 +175,17 @@ function App() {
             <h1 className="quiz-question">
               {quizData[currentQuestion].question}
             </h1>
+            {feedbackMessage && (
+              <p
+                style={{
+                  marginBottom: "16px",
+                  fontWeight: 700,
+                  color: feedbackType === "error" ? "#b42318" : "#1f2b58",
+                }}
+              >
+                {feedbackMessage}
+              </p>
+            )}
             <div className="options-grid">
               {quizData[currentQuestion].options.map((opt, index) => (
                 <button
@@ -181,4 +204,4 @@ function App() {
   );
 }
 
-export default App;
+export default QCM;
