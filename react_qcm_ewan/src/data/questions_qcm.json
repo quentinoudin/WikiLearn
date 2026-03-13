@@ -1,0 +1,17 @@
+[
+  {
+    "question": "« En quelle année la brique LEGO moderne (telle qu'on la connaît) a-t-elle été brevetée ? »",
+    "options": ["1958", "1945", "1962", "1932"],
+    "correctAnswer": "1958"
+  },
+  {
+    "question": "« Quel est le nom de la gamme LEGO destinée aux plus petits avec des briques deux fois plus grandes ? »",
+    "options": ["Duplo", "Technic", "Ninjago", "City"],
+    "correctAnswer": "Duplo"
+  },
+  {
+    "question": "« De quel pays est originaire la marque LEGO ? »",
+    "options": ["Danemark", "Suède", "Norvège", "Allemagne"],
+    "correctAnswer": "Danemark"
+  }
+]
