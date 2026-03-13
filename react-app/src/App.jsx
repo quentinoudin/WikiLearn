@@ -1,30 +1,29 @@
-import "./App.css";
+import './App.css';
 
 function ButtonSuede() {
   const clic = () => alert("Bouton cliqué!");
-  return <button onClick={clic}>A. Suède</button>;
+  return <button className="option-btn" onClick={clic}>A. Suède</button>;
 }
 
 function ButtonDanemark() {
   const clic = () => alert("Bouton cliqué!");
-  return <button onClick={clic}>B. Danemark</button>;
+  return <button className="option-btn" onClick={clic}>B. Danemark</button>;
 }
 
 function ButtonNorvege() {
   const clic = () => alert("Bouton cliqué!");
-  return <button onClick={clic}>C. Norvège</button>;
+  return <button className="option-btn" onClick={clic}>C. Norvège</button>;
 }
 
 function ButtonFinlande() {
   const clic = () => alert("Bouton cliqué!");
-  return <button onClick={clic}>D. Finlande</button>;
+  return <button className="option-btn" onClick={clic}>D. Finlande</button>;
 }
-
 
 function App() {
   return (
     <div className="App">
-      {/* Navbar que l'on a déjà faite */}
+      {/* Navbar */}
       <header className="header">
         <a href="/" className="logo-link">
           <div className="logo-icon-box">
@@ -61,7 +60,7 @@ function App() {
         </div>
       </header>
 
-      {/* ZONE DE CONTENU */}
+      {/* Contenu */}
       <main className="main-content">
         {/* Barre d'XP */}
         <div className="xp-bar-container">
@@ -71,5 +70,35 @@ function App() {
           </div>
         </div>
 
-        {/* QUESTION QUIZ */}
-        <h1>Question 5 : De quel pays est originaire le groupe qui fabrique les LEGO ?</h1>
+        {/* Carte QCM */}
+        <div className="quiz-card">
+          <div className="quiz-header">
+            <span className="quiz-xp-display">🔥 50xp</span>
+            <div className="stepper">
+              {[1,2,3,4,5].map((n) => (
+                <div key={n} className={`dot${n === 5 ? ' active' : ''}`}>
+                  <span className="dot-num">{n === 5 ? '🔥' : n}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="quiz-category">GÉOGRAPHIE</p>
+
+          <h2 className="quiz-question">
+            De quel pays est originaire le groupe qui fabrique les LEGO ?
+          </h2>
+
+          <div className="options-grid">
+            <ButtonSuede />
+            <ButtonDanemark />
+            <ButtonNorvege />
+            <ButtonFinlande />
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export default App;
