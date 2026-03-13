@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import questionsData from "./WikiLearn/data/questions_trous.json";
-import '../style.css';
-
+import questionsData from '../../data/questions_trous.json'; // Assure-toi que le chemin est correct selon ta structure de dossiers
+import './texte-a-trous.css'; // J'ai ajusté le chemin vers ton CSS spécifique d'après ta capture !
 
 function QuizTexteATrous() {
   const [index, setIndex] = useState(0);
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState(null);
 
+  // Petite sécurité au cas où le JSON est vide ou n'a pas chargé
+  if (!questionsData || questionsData.length === 0) {
+    return <div>Chargement des questions...</div>;
+  }
+
+  // Écran de fin
   if (index >= questionsData.length) {
     return (
       <div className="quiz-card">
