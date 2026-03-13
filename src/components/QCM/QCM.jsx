@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./QCM.css";
 
 function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
